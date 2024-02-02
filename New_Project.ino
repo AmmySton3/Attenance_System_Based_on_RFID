@@ -24,12 +24,12 @@ int buzzer = D0;
 int i = 0;
 
 const char* ssid = "MSB";
-const char* passphrase = "MSB123";
-const char* serverName = "http://msb.ac.tz/attendance/scan.php";
+const char* passphrase = "";
+const char* serverName = "";
 
 String accesstoken = "IamAuthorized";
 String rfidNo = "RFID-24-001";
-String rfidLocation = "MSB-DSM";
+String rfidLocation = "MSB";
 String st;
 String content;
 int statusCode;
@@ -121,9 +121,9 @@ void setup()
 
 void loop() {
   lcd.setCursor(4,0);
-  lcd.print("MSB DSM");
+  lcd.print("MSB");
   lcd.setCursor(0,1);
-  lcd.print("Burhani Infosys Ltd");
+  lcd.print("Ston3 Tech Ltd");
  
   if ( ! rfid.PICC_IsNewCardPresent())
     return;
