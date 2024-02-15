@@ -115,7 +115,8 @@ void setup()
     delay(1000);
     lcd.clear();
     testWifi(); 
-    server.handleClient();
+    //server.handleClient();
+    resetNodeMCU();
   }
 }
 
@@ -141,8 +142,6 @@ void loop() {
     rfid.PICC_HaltA();
     rfid.PCD_StopCrypto1();
   }
-  // Reset the watchdog timer
- // ESP.wdtFeed();
 }  
 
 void sendDataToDatabase(unsigned long decimalUID){
@@ -243,7 +242,12 @@ unsigned long hexToDec(String hexString) {
   }
   return decValue;
 }
- 
+
+//Reset Node MCU ESP8266
+void resetNodeMCU() {
+    ESP.restart();
+} 
+
 //Functions used for saving WiFi credentials and to connect to it which you do not need to change 
 bool testWifi(void)
 {
